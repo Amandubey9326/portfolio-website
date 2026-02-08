@@ -9,33 +9,17 @@ const GlobalStyles = createGlobalStyle`
 
   html, body {
     height: 100%;
-    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-      'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    font-family: 'Inter', 'Poppins', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto',
       sans-serif;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
   }
 
   body {
-    background: linear-gradient(135deg, ${props => props.theme.colors.background.start} 0%, ${props => props.theme.colors.background.end} 100%);
+    background: ${props => props.theme.colors.background.start};
     color: ${props => props.theme.colors.text.primary};
     overflow-x: hidden;
     position: relative;
-  }
-
-  body::before {
-    content: '';
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-image: 
-      radial-gradient(circle at 20% 80%, rgba(139, 92, 246, 0.3) 0%, transparent 50%),
-      radial-gradient(circle at 80% 20%, rgba(59, 130, 246, 0.3) 0%, transparent 50%),
-      radial-gradient(circle at 40% 40%, rgba(6, 182, 212, 0.2) 0%, transparent 50%);
-    pointer-events: none;
-    z-index: -1;
   }
 
   #root {
@@ -45,12 +29,12 @@ const GlobalStyles = createGlobalStyle`
   }
 
   h1, h2, h3, h4, h5, h6 {
-    font-weight: 600;
+    font-weight: 700;
     line-height: 1.2;
   }
 
   p {
-    line-height: 1.6;
+    line-height: 1.7;
   }
 
   button {
@@ -63,6 +47,20 @@ const GlobalStyles = createGlobalStyle`
   a {
     text-decoration: none;
     color: inherit;
+  }
+
+  /* Custom scrollbar */
+  ::-webkit-scrollbar {
+    width: 8px;
+  }
+
+  ::-webkit-scrollbar-track {
+    background: ${props => props.theme.colors.background.start};
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background: ${props => props.theme.colors.primary};
+    border-radius: 4px;
   }
 
   /* Responsive font scaling */
@@ -84,12 +82,8 @@ const GlobalStyles = createGlobalStyle`
 
   /* Animations */
   @keyframes fadeIn {
-    from {
-      opacity: 0;
-    }
-    to {
-      opacity: 1;
-    }
+    from { opacity: 0; }
+    to { opacity: 1; }
   }
 
   @keyframes fadeInUp {
@@ -125,22 +119,19 @@ const GlobalStyles = createGlobalStyle`
     }
   }
 
-  @keyframes pulse {
-    0%, 100% {
-      transform: scale(1);
-    }
-    50% {
-      transform: scale(1.05);
-    }
+  @keyframes float {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-10px); }
   }
 
-  @keyframes float {
-    0%, 100% {
-      transform: translateY(0);
-    }
-    50% {
-      transform: translateY(-10px);
-    }
+  @keyframes glow {
+    0%, 100% { box-shadow: 0 0 20px rgba(46, 229, 157, 0.3); }
+    50% { box-shadow: 0 0 40px rgba(46, 229, 157, 0.6); }
+  }
+
+  @keyframes borderGlow {
+    0%, 100% { border-color: rgba(46, 229, 157, 0.5); }
+    50% { border-color: rgba(46, 229, 157, 1); }
   }
 `;
 

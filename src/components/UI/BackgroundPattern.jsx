@@ -1,23 +1,5 @@
 import React from 'react';
-import styled, { keyframes } from 'styled-components';
-
-const float = keyframes`
-  0%, 100% {
-    transform: translateY(0px) rotate(0deg);
-  }
-  50% {
-    transform: translateY(-20px) rotate(180deg);
-  }
-`;
-
-const pulse = keyframes`
-  0%, 100% {
-    opacity: 0.4;
-  }
-  50% {
-    opacity: 0.8;
-  }
-`;
+import styled from 'styled-components';
 
 const PatternContainer = styled.div`
   position: fixed;
@@ -30,106 +12,34 @@ const PatternContainer = styled.div`
   overflow: hidden;
 `;
 
-const GeometricShape = styled.div`
+const GradientOverlay = styled.div`
   position: absolute;
-  border-radius: 50%;
-  background: linear-gradient(45deg, 
-    ${props => props.theme.colors.primary}20, 
-    ${props => props.theme.colors.secondary}20
-  );
-  animation: ${float} 6s ease-in-out infinite;
-  
-  &:nth-child(1) {
-    width: 100px;
-    height: 100px;
-    top: 10%;
-    left: 10%;
-    animation-delay: 0s;
-  }
-  
-  &:nth-child(2) {
-    width: 150px;
-    height: 150px;
-    top: 60%;
-    right: 10%;
-    animation-delay: 2s;
-    animation-duration: 8s;
-  }
-  
-  &:nth-child(3) {
-    width: 80px;
-    height: 80px;
-    bottom: 20%;
-    left: 20%;
-    animation-delay: 4s;
-    animation-duration: 10s;
-  }
-  
-  &:nth-child(4) {
-    width: 120px;
-    height: 120px;
-    top: 30%;
-    right: 30%;
-    animation-delay: 1s;
-    animation-duration: 7s;
-  }
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: 
+    radial-gradient(ellipse at 20% 0%, rgba(46, 229, 157, 0.08) 0%, transparent 50%),
+    radial-gradient(ellipse at 80% 100%, rgba(46, 229, 157, 0.05) 0%, transparent 50%);
 `;
 
-const LinePattern = styled.div`
+const GridPattern = styled.div`
   position: absolute;
-  width: 2px;
-  height: 100px;
-  background: linear-gradient(to bottom, 
-    transparent, 
-    ${props => props.theme.colors.accent}40, 
-    transparent
-  );
-  animation: ${pulse} 4s ease-in-out infinite;
-  
-  &:nth-child(5) {
-    top: 20%;
-    left: 50%;
-    transform: rotate(45deg);
-    animation-delay: 0s;
-  }
-  
-  &:nth-child(6) {
-    bottom: 30%;
-    right: 40%;
-    transform: rotate(-45deg);
-    animation-delay: 2s;
-  }
-  
-  &:nth-child(7) {
-    top: 70%;
-    left: 70%;
-    transform: rotate(90deg);
-    animation-delay: 1s;
-  }
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: 
+    linear-gradient(rgba(46, 229, 157, 0.03) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(46, 229, 157, 0.03) 1px, transparent 1px);
+  background-size: 80px 80px;
 `;
 
-const BackgroundPattern = ({ variant = 'combined' }) => {
-  if (variant === 'gradient') {
-    return null; // Gradient is handled in GlobalStyles
-  }
-
+const BackgroundPattern = () => {
   return (
     <PatternContainer>
-      {(variant === 'geometric' || variant === 'combined') && (
-        <>
-          <GeometricShape />
-          <GeometricShape />
-          <GeometricShape />
-          <GeometricShape />
-        </>
-      )}
-      {(variant === 'combined') && (
-        <>
-          <LinePattern />
-          <LinePattern />
-          <LinePattern />
-        </>
-      )}
+      <GradientOverlay />
+      <GridPattern />
     </PatternContainer>
   );
 };

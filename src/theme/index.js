@@ -1,20 +1,23 @@
 export const theme = {
   colors: {
-    primary: '#8B5CF6', // Purple
-    secondary: '#3B82F6', // Blue
-    accent: '#06B6D4', // Cyan
+    primary: '#2EE59D', // Green accent (matching reference)
+    secondary: '#1a1a2e', // Dark background
+    accent: '#2EE59D', // Green accent
     background: {
-      start: '#1E1B4B', // Dark purple
-      end: '#1E3A8A', // Dark blue
+      start: '#0a0a0f', // Very dark
+      end: '#12121a', // Dark blue-black
     },
     text: {
       primary: '#FFFFFF',
-      secondary: '#E2E8F0',
+      secondary: '#B8B8B8',
+      muted: '#6B7280',
     },
     glass: {
-      background: 'rgba(255, 255, 255, 0.1)',
-      border: 'rgba(255, 255, 255, 0.2)',
+      background: 'rgba(255, 255, 255, 0.05)',
+      border: 'rgba(46, 229, 157, 0.3)',
     },
+    dark: '#0a0a0f',
+    surface: '#16161d',
   },
   breakpoints: {
     mobile: '(max-width: 767px)',
