@@ -1,6 +1,5 @@
-import React from 'react';
 import styled from 'styled-components';
-import { FiDownload, FiPlay } from 'react-icons/fi';
+import { FiDownload } from 'react-icons/fi';
 
 const HeroContainer = styled.section`
   min-height: 100vh;
@@ -123,35 +122,6 @@ const DownloadButton = styled.a`
   
   svg {
     font-size: 1.2rem;
-  }
-`;
-
-const VideoButton = styled.button`
-  display: flex;
-  align-items: center;
-  gap: 0.75rem;
-  background: transparent;
-  color: white;
-  padding: 1rem;
-  font-weight: 500;
-  font-size: 1rem;
-  
-  .play-icon {
-    width: 50px;
-    height: 50px;
-    background: rgba(255, 255, 255, 0.1);
-    border: 2px solid rgba(255, 255, 255, 0.3);
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    transition: all 0.3s ease;
-  }
-  
-  &:hover .play-icon {
-    background: ${props => props.theme.colors.primary};
-    border-color: ${props => props.theme.colors.primary};
-    color: #0a0a0f;
   }
 `;
 
